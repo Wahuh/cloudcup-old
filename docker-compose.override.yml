@@ -1,0 +1,13 @@
+version: "3.4"
+
+services:
+  shop.api:
+    build:
+      context: ./src/Services/Shop/Shop.API
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8080:5000
+    volumes:
+      - ./src/Services/Shop/Shop.API/:/app
+    # #   - ./src/Services/Shop/Shop.API/bin
+    # #   - ./src/Services/Shop/Shop.API/obj
