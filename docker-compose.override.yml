@@ -9,5 +9,15 @@ services:
       - 8080:5000
     volumes:
       - ./src/Services/Shop/Shop.API/:/app
-    # #   - ./src/Services/Shop/Shop.API/bin
-    # #   - ./src/Services/Shop/Shop.API/obj
+      - ./src/Services/Shop/Shop.API/bin
+      - ./src/Services/Shop/Shop.API/obj
+
+  shop.data:
+    image: postgres:12
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=abc123
+      - POSTGRES_DB=shop
+      - POSTGRES_HOST=shop.data
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=cloudcup
